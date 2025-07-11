@@ -21,3 +21,11 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("body").style.display = "block";
 }
+
+const typed = new Typed('.multiple-text', {
+      strings: ['Frontend developer', '&web designer'],
+      typeSpeed: 50,
+      backSpeed: 80,
+      backDelay: 1200,
+      loop: true,
+    });
