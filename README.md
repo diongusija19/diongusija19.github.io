@@ -45,6 +45,6 @@ Hi! I'm Joni, a passionate front-end developer focused on building clean, modern
 To run this project locally:
 
 ```bash
-git clone https://github.com/yourusername/portfolio-website.git
-cd portfolio-website
+git clone https://github.com/diongusija19/diongusija19.github.io.git
+cd diongusija19.github.io
 open index.html
