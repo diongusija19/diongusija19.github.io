@@ -54,7 +54,7 @@ section {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 3%;
-    background: var(--main-color);
+    background: var(--text-color);
     backdrop-filter: blur(10px);
     transition: all 0.5s ease;
 }
@@ -81,7 +81,7 @@ section {
 
 .navbar a:hover ,
 .navbar a.active {
-    color: var(--text-color);
+    color: var(--main-color);
 }
 
 #menu {
@@ -192,7 +192,7 @@ span {
     display: inline-block;
     padding: 1rem 2.2rem;
     margin-top: 2rem;
-    background: var(--main-color);
+    background: var(--text-color);
     border-radius: 4rem;
     box-shadow: none;
     font-size: 1.6rem;
