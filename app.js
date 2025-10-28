@@ -30,20 +30,26 @@ function type() {
 
 type();
 
-const skillBars = document.querySelectorAll('.skill-bar');
+// SKILL BAR ANIMATION
+const skillSection = document.querySelector("#skills");
+const skillBars = document.querySelectorAll(".fill");
 
-const skillObserver = new IntersectionObserver(entries => {
+const optionsSkills = { threshold: 0.3 };
+
+const animateSkills = (entries, observerSkills) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const bar = entry.target;
-      const width = bar.getAttribute('data-skill');
-      bar.style.width = width;
-      skillObserver.unobserve(bar); // animate only once
+      skillBars.forEach(bar => {
+        bar.style.width = bar.getAttribute("data-width");
+      });
+      observerSkills.unobserve(skillSection); // run once
     }
   });
-}, { threshold: 0.5 });
+};
 
-skillBars.forEach(bar => skillObserver.observe(bar));
+const observerSkills = new IntersectionObserver(animateSkills, optionsSkills);
+observerSkills.observe(skillSection);
+
 
 // ==============================
 // 5️⃣ Hamburger menu toggle
