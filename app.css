@@ -275,7 +275,7 @@ nav {
 }
 
 .skill-bar .fill {
-  background: var(--primary-color, #ff4b5c);
+  background: var(--primary-color, #196621);
   width: 0;
   height: 100%;
   border-radius: 10px;
