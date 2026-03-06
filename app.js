@@ -1,66 +1,63 @@
-// ==============================
-// 1️⃣ Fade-in on scroll
-// ==============================
 const sections = document.querySelectorAll('.animate');
+const skillSection = document.querySelector('#skills');
+const skillBars = document.querySelectorAll('.fill');
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+const navAnchors = navLinks.querySelectorAll('a');
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
 
-sections.forEach(section => observer.observe(section));
+sections.forEach((section) => revealObserver.observe(section));
 
-// ==============================
-// 2️⃣ Typing animation for Hero tagline
-// ==============================
-const text = "Web Developer | Designer | Creator";
-const el = document.getElementById('typed-text');
-let i = 0;
+const typedText = 'HTML • CSS • JavaScript • UX-minded interfaces';
+const typedTarget = document.getElementById('typed-text');
+let currentTextIndex = 0;
 
-function type() {
-  if (i < text.length) {
-    el.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 100); // typing speed (ms)
+function typeHeroText() {
+  if (currentTextIndex < typedText.length) {
+    typedTarget.textContent += typedText.charAt(currentTextIndex);
+    currentTextIndex += 1;
+    setTimeout(typeHeroText, 55);
   }
 }
 
-type();
+typeHeroText();
 
-// SKILL BAR ANIMATION
-const skillSection = document.querySelector("#skills");
-const skillBars = document.querySelectorAll(".fill");
+const skillsObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        skillBars.forEach((bar) => {
+          bar.style.width = bar.getAttribute('data-width');
+        });
+        observer.unobserve(skillSection);
+      }
+    });
+  },
+  { threshold: 0.35 }
+);
 
-const optionsSkills = { threshold: 0.3 };
-
-const animateSkills = (entries, observerSkills) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      skillBars.forEach(bar => {
-        bar.style.width = bar.getAttribute("data-width");
-      });
-      observerSkills.unobserve(skillSection); // run once
-    }
-  });
-};
-
-const observerSkills = new IntersectionObserver(animateSkills, optionsSkills);
-observerSkills.observe(skillSection);
-
-
-// ==============================
-// 5️⃣ Hamburger menu toggle
-// ==============================
-const navToggle = document.getElementById('nav-toggle');
-const navLinks = document.getElementById('nav-links');
+skillsObserver.observe(skillSection);
 
 navToggle.addEventListener('click', () => {
   navLinks.classList.toggle('show');
   navToggle.classList.toggle('active');
 });
 
+navAnchors.forEach((anchor) => {
+  anchor.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+    navToggle.classList.remove('active');
+  });
+});
 
 
