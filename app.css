@@ -343,11 +343,13 @@ h2 {
 }
 
 .stack-tools {
-  margin-top: 1.2rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px dashed var(--line);
 }
 
 .stack-tools h3 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.9rem;
 }
 
 .contact-panel {
