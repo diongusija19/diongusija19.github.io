@@ -309,6 +309,7 @@ h2 {
 
 .stack-grid {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
 }
 
@@ -339,6 +340,14 @@ h2 {
   border-radius: inherit;
   background: linear-gradient(90deg, var(--cool), var(--hot));
   transition: width 1.1s ease;
+}
+
+.stack-tools {
+  margin-top: 1.2rem;
+}
+
+.stack-tools h3 {
+  margin-bottom: 0.6rem;
 }
 
 .contact-panel {
@@ -423,6 +432,10 @@ footer {
   }
 
   .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stack-grid {
     grid-template-columns: 1fr;
   }
 
